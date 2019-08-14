@@ -1,0 +1,21 @@
+test_echo_notify:
+  alias: echo notify test
+  sequence:
+    - service: notify.alexa_media
+      data:
+        target:
+          - media_player.jayakumar_s_echo
+        data:
+          - type: announce
+        message: "this is a test"
+  
+alexa_test_announce:
+  sequence:
+    - service: notify.alexa_media
+      data:
+        target: media_player.jayakumar_s_echo
+        #title: My title for Echo show
+        message: "Test"
+        data:
+          type: announce
+          method: all # or speak or show

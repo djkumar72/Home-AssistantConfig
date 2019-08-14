@@ -1,1 +1,12 @@
-[]
+- id: alarm_triggered
+  alias: '[Alarm] Triggered'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.house
+    to: 'triggered'
+  action:
+   - service: notify.clicksend
+     data_template:
+        title: "Alarm Trigger"
+        message: "JayHome alart triggered"
+

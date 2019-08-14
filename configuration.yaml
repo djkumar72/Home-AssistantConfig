@@ -14,20 +14,38 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
+logger:
+  default: info
+
 config:
 
 discovery:
 
-panel_custom:
-  - name: hassio-main
-    sidebar_title: Configurator
-    sidebar_icon: mdi:wrench
-    js_url: /api/hassio/app/entrypoint.js
-    url_path: configurator
-    embed_iframe: true
-    require_admin: true
-    config:
-      ingress: "core_configurator"
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.ca
+      
+
+hacs:
+  token: e500b47d19e4d5837f9972bc1ce5fef3942a697f
+  
+
+# Multiple recipients
+notify:
+  - platform: clicksend
+    name: ClickSend
+    username: djkumar72
+    api_key: !secret clicksend_apikey
+    recipient: [6474096487, 4168322003]
+
+panel_custom: !include panel_custom.yaml
+
+alarm_control_panel: !include resources/bwalarm/bwalarm.yaml
+
+
 
 konnected:
   access_token: JayKonnected

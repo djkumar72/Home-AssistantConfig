@@ -1,0 +1,15 @@
+  - name: alarm
+    sidebar_title: Alarm
+    sidebar_icon: mdi:security-home
+    config:
+      alarmid: alarm_control_panel.house
+      
+  - name: hassio-main
+    sidebar_title: Configurator
+    sidebar_icon: mdi:wrench
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: configurator
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: "core_configurator"
